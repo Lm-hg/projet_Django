@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="{% static 'ratp/img/denshasncf.jpeg' %}">
+    <link rel="stylesheet" href="{% static 'ratp/CSS/index.css' %}">
+
+</head>
+<body>
+    <header>
+        <h1>D E N S H A S N C F</h1>
+        <nav>
+            <ul>
+                <li><a href="./random">Aléatoire</a></li>
+                <li><a href="./create">Ajouter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>DenshaSncf vous souhaite un bon voyage</h1>
+        <h3>Vos destinations:</h3>
+        <div>
+    <table>
+        <tr>
+            <th> ID</th>
+            <th>Destinations</th>
+            <th>Départ</th>
+            <th>Infos</th>
+        </tr>
+
+        {% for i in train %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.destination}}</td>
+            <td>{{i.depart}}</td>
+            <td><a href="./show/{{i.id}}">Voir</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    </div>    
+</main>
+<footer>
+    <p>DenshaSncf Company.@Copyrights Tous droits réservés</p>
+</footer>
+</body>
+</html>

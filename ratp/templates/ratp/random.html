@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="{% static 'ratp/img/denshasncf.jpeg' %}">
+    <link rel="stylesheet" href="{% static 'ratp/CSS/show.css' %}">
+
+</head>
+<body>
+
+    
+
+    
+    <header>
+        <h1>D E N S H A S N C F</h1>
+        <nav>
+            <ul>
+                <li><a href="./index">Accueil</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div id="container">
+        <div class="info">
+            <h1><span>Train Numero: </span> {{id}}</h1>
+            <h1><span>Nombre d'arrêts: </span>{{arrets}}</h1>
+            <h1><span>Destination: </span>{{destination}}</h1>
+            <h1><span>Départ: </span>{{depart}}</h1>
+            <h1><span>Arrivée:</span>{{arrive}}</h1>
+        </div>
+
+    </div>
+    <footer>
+        <p>DenshaSncf Company.@Copyrights Tous droits réservés</p>
+    </footer>
+   
+</body>
+</html>
