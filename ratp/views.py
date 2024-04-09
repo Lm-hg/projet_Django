@@ -11,12 +11,14 @@ def index(request):
 def show(request,body):
     a=int(body)
     trai=Train.objects.all()[a-1]
+    long=len(Train.objects.all())
     return render(request,"ratp/show.html",{
         "id":trai.id,
         "arrets":trai.arrets,
         "destination":trai.destination,
         "depart":trai.depart,
-        "arrive":trai.arrivee
+        "arrive":trai.arrivee,
+        "len":long
     })
 def random(request):
     
@@ -30,5 +32,21 @@ def random(request):
         "arrive":trai.arrivee
     })
 def create(request):
-    return render(request,"ratp/create.html",{})
+    trai=len(Train.objects.all()) + 1#ceci, c'est pour l'id, pour chaque nouvelle destination qu'on va entrer, l'id sera incrémenté
+    if request.method=='POST':
+        #on récupère les données du formulaire
+        destination=request.POST.get('destination')
+        arrets=request.POST.get('arrets')
+        depart=request.POST.get('depart')
+        arrivee=request.POST.get('arrivee')
+        arret=arrets + "arrets"
+        
+        #insertion
+        train=Train(id=trai, arrets=arret, destination=destination,depart=depart, arrivee=arrivee)
+        train.save()
+        return HttpResponse('Donées insérées')
+    else:
+        return render(request,"ratp/create.html",{
+        
+    })
 # Create your views here.

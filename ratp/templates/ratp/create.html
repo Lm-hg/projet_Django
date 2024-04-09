@@ -5,8 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="{% static 'ratp/img/denshasncf.jpeg' %}">
+    <link rel="stylesheet" href="{% static 'ratp/CSS/show.css' %}">
+    <link rel="stylesheet" href="{% static 'ratp/CSS/create.css' %}">
+
+
 </head>
 <body>
-    
+    <header>
+        <h1>D E N S H A S N C F</h1>
+        <nav>
+            <ul>
+                <li><a href="./index">Accueil</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Ajout</h1>
+    <form action="{% url 'create' %}" method="post">    <!--on spécifie la fonction dans views.py qui s'occupera de traiter les infos -->
+        {% csrf_token%}<!--indispensable pour la method post --> 
+        <input type="text" name="destination" id="destination" placeholder="Destination" required>
+        <br>
+        <input type="number" name="arrets" id="arrets" placeholder="Nombre d'arrêts" required>
+        <br>
+        <label for="">Heure de départ:</label>
+        <input type="time" name="depart" id="depart"  required>
+        <br>
+        <label for="">Heure d'arrivée:</label>
+        <input type="time" name="arrivee" id="arrivee"  required>
+        <br>
+        <input type="submit" value="Envoyer">
+    </form>
+    <footer>
+        <p>DenshaSncf Company.@Copyrights Tous droits réservés</p>
+    </footer>
 </body>
 </html>

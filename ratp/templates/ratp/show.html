@@ -41,7 +41,10 @@
     <footer>
         <p>DenshaSncf Company.@Copyrights Tous droits réservés</p>
     </footer>
+    <!-- on va stocker la longeur de la table -->
+    <h1 id="long" style="display: none;">{{len}}</h1>
     <script>
+        long=document.querySelector("#long").innerHTML
         moins=document.querySelector("#moins")
         plus=document.querySelector("#plus")
         //lorsqu'on cliquera sur les boutons, on incrémentera, ou décrémentera l'id en fonction du bouton cliqué
@@ -49,7 +52,7 @@
             e.preventDefault
             h=document.querySelector("h3").innerHTML
             if(h==1){
-                h= 20 
+                h= parseInt(long)
             }else{
                 h= parseInt(h)-1
             }
@@ -58,7 +61,7 @@
         plus.addEventListener("click",function(e){
             e.preventDefault
             h=document.querySelector("h3").innerHTML
-            if(h==20){
+            if(h==parseInt(long)){
                 h= 1 
             }else{
                 h= parseInt(h)+1
